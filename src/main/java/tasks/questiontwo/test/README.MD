@@ -1,0 +1,1 @@
+The following class has several memory and runtime inefficiencies and bugs. Locate and fix as many as you can
