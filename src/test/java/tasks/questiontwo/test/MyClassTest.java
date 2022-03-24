@@ -17,7 +17,7 @@ public class MyClassTest {
     private MyClass myClass;
     private List stringValueList;
     private List longValueList;
-
+    private LocalDateTime nowMinusHour = LocalDateTime.now().minusHours(1);
     @Before
     public void setup(){
         longValueList = new ArrayList<Long>(){{
@@ -34,7 +34,6 @@ public class MyClassTest {
             add("alex test 4");
             add("alex test 4");
         }};
-        LocalDateTime nowMinusHour = LocalDateTime.now().minusHours(1);
         myClass = new MyClass(nowMinusHour, "alex", longValueList, stringValueList);
     }
 
@@ -79,7 +78,6 @@ public class MyClassTest {
 
     @Test
     public void testEqualsObjects(){
-        LocalDateTime nowMinusHour = LocalDateTime.now().minusHours(1);
         MyClass myClassNew = new MyClass(nowMinusHour, "alex", longValueList, stringValueList);
         assertEquals(myClassNew, myClass);
     }
