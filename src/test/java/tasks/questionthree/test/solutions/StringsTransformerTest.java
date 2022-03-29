@@ -36,6 +36,7 @@ public class StringsTransformerTest {
     public void transformByTaboolaDefault() throws InterruptedException {
         StringsTransformer stringsTransformer = new StringsTransformer(listOFStrings);
         List<String> transformedData = stringsTransformer.transform(listOfFunctions);
+        System.out.println(transformedData);
         assertEquals(transformedData.size(), listOFStrings.size());
     }
 
@@ -43,6 +44,7 @@ public class StringsTransformerTest {
     public void transformThreadPoolWay() throws InterruptedException {
         StringsTransformerAlternativeThreadPool stringsTransformer = new StringsTransformerAlternativeThreadPool(listOFStrings);
         List<String> transformedData = stringsTransformer.transform(listOfFunctions);
+        System.out.println(transformedData);
         assertEquals(transformedData.size(), listOFStrings.size());
     }
 
@@ -50,6 +52,7 @@ public class StringsTransformerTest {
     public void transformThreadPoolWayWithAwait() throws InterruptedException {
         StringsTransformerAlternativeAwait stringsTransformer = new StringsTransformerAlternativeAwait(listOFStrings);
         List<String> transformedData = stringsTransformer.transform(listOfFunctions);
+        System.out.println(transformedData);
         assertEquals(transformedData.size(), listOFStrings.size());
     }
 }

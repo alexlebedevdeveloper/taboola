@@ -23,7 +23,10 @@ public class StringsTransformerAlternativeThreadPool extends StringsTransformerA
     @Override
     public List<String> transform(final List<StringFunction> functions) throws InterruptedException {
         ExecutorService executor = Executors.newFixedThreadPool(THREAD_NUMBER);
-        List<List<String>> tempList = data.stream().map(stringValue -> transformExecution(functions, executor, stringValue)).collect(Collectors.toList());
+        List<List<String>> tempList = new ArrayList<>();
+        for(String dataText : data){
+            tempList.add(transformExecution(functions, executor, dataText));
+        }
         executor.awaitTermination(2, TimeUnit.SECONDS);
         executor.shutdown();
         List<String> finalList = new ArrayList<>();

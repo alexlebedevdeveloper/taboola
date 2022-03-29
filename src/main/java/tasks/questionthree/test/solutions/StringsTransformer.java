@@ -14,18 +14,13 @@ public class StringsTransformer extends StringsTransformerAbstractImpl {
 
     // Addition low-level issues :
     // 1. We can not control here execution order
-    // 2. Due to the problem from the main issue - we can loose transformation data
+    // 2. Due to the problem from the main issue - we can lose transformation data
 
     @Override
     public List<String> transform(List<StringFunction> functions) throws InterruptedException {
-        List<Thread> threads = new ArrayList<Thread>();
+        List<Thread> threads = new ArrayList<>();
         for (final StringFunction f : functions) {
-            threads.add(new Thread(new Runnable() {
-                @Override
-                public void run() {
-                    forEach(f);
-                }
-            }));
+            threads.add(new Thread(() -> forEach(f)));
         }
         for (Thread t : threads) {
             t.join();

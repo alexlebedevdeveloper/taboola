@@ -6,7 +6,7 @@ import java.util.List;
 public abstract class StringsTransformerAbstractImpl {
     protected static final int THREAD_NUMBER = 10;
 
-    protected List<String> data = new ArrayList<String>();
+    protected List<String> data;
 
     public List<String> getData() {
         return data;
@@ -27,6 +27,6 @@ public abstract class StringsTransformerAbstractImpl {
     public abstract List<String> transform(final List<StringFunction> functions) throws InterruptedException;
 
     public static interface StringFunction {
-        public String transform(String str);
+        String transform(String str);
     }
 }
